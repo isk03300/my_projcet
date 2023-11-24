@@ -38,21 +38,31 @@ def run_app_trade() :
         st.success('출처 : https://data.seoul.go.kr/dataList/OA-21275/S/1/datasetView.do')
         st.text('*기준은 계약일이 아닌 접수연도를 기준으로 한다*')
         st.dataframe(df)
-       
+        
+        
         st.text(' ')
         st.text(' ')
         st.text(' ')
         st.text(' ')
-
-
 
         fig = plt.figure()
-        df_total = df.groupby('건물용도')['물건금액(만원)'].max()
-        plt.pie(df_total, labels=df_total.index, autopct='%.2f' , startangle= 90 ,wedgeprops={'width' : 0.7} )
-        plt.title('서울시 건물용도별 거래 비율')
-    
+        color_set = sb.color_palette()[9]
+        order_set = df['자치구명'].value_counts().index
+        sb.countplot(data = df , y ='자치구명',color=color_set,order=order_set)
+        plt.title('서울시 전체 실거래 건 수')
+        plt.xlabel('거래 건 수')
         st.pyplot(fig)
-    
+
+        fig2 = plt.figure()
+        df2 = df['자치구명'].value_counts().head()
+        plt.pie(df2 , labels=df2.index, autopct='%.2f',wedgeprops={'width':0.7})
+        plt.title('서울시 전체 실거래량 Top5')
+        st.pyplot(fig2)
+
+
+        
+        
+        st.text('')
     
     st.text(' ')
     st.text(' ')
