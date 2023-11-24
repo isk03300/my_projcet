@@ -26,7 +26,7 @@ df = df.fillna('NoData')
 df['계약일'] = pd.to_datetime(df['계약일'].astype(str))
 df['접수연도'] = df['접수연도'].astype(str)
 
-menu = ['종류 선택','오피스텔','아파트','연립다세대','단독다가구']
+menu = ['용도 선택','오피스텔','아파트','연립다세대','단독다가구']
 
 def run_app_trade() :
 
@@ -35,21 +35,38 @@ def run_app_trade() :
     st.header('2023년도 서울특별시 부동산 실거래가')
 
     if st.checkbox('전체 실거래 보기') :
+        st.success('출처 : https://data.seoul.go.kr/dataList/OA-21275/S/1/datasetView.do')
+        st.text('*기준은 계약일이 아닌 접수연도를 기준으로 한다*')
         st.dataframe(df)
        
-        st.text('출처 : https://data.seoul.go.kr/dataList/OA-21275/S/1/datasetView.do')
+        st.text(' ')
+        st.text(' ')
+        st.text(' ')
+        st.text(' ')
+
+
+
+        fig = plt.figure()
+        df_total = df.groupby('건물용도')['물건금액(만원)'].max()
+        plt.pie(df_total, labels=df_total.index, autopct='%.2f' , startangle= 90 ,wedgeprops={'width' : 0.7} )
+        plt.title('서울시 건물용도별 거래 비율')
+    
+        st.pyplot(fig)
+    
+    
     st.text(' ')
     st.text(' ')
 
         
 
-    choice = st.selectbox('건물의 종류를 선택하시오', menu )
+    choice = st.selectbox('건물의 용도를 선택하시오', menu )
 
 
     if choice == menu[1] :
          df_op = df.loc[ df['건물용도'] =='오피스텔' ,].set_index('건물용도')
 
          st.dataframe(df_op) 
+        
 
          st.text(' ')
          st.text(' ')
@@ -57,7 +74,7 @@ def run_app_trade() :
          st.text(' ')
         
          op_order = df_op['자치구명'].value_counts().index
-         op_color = sb.color_palette()[2]
+         op_color = sb.color_palette()[0]
          
          fig = plt.figure()
 
@@ -89,7 +106,7 @@ def run_app_trade() :
          st.dataframe(df_apt) 
         
          apt_order = df_apt['자치구명'].value_counts().index
-         apt_color = sb.color_palette()[2]
+         apt_color = sb.color_palette()[1]
          
          fig = plt.figure()
 
@@ -136,7 +153,7 @@ def run_app_trade() :
          st.dataframe(df_apt) 
         
          apt_order = df_apt['자치구명'].value_counts().index
-         apt_color = sb.color_palette()[2]
+         apt_color = sb.color_palette()[3]
          
          fig = plt.figure()
 
