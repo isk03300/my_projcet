@@ -30,6 +30,7 @@ def run_app_trade() :
     if choice == menu[0] :
          #st.text('sdsd')
          st.dataframe(df.loc[ df['건물용도'] =='오피스텔' , ].set_index('건물용도'))
+         
     
     elif choice == menu[1]:
 
