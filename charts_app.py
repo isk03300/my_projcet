@@ -6,6 +6,9 @@ import plotly.express as px
 import platform
 import seaborn as sb
 
+import matplotlib
+matplotlib.font_manager._rebuild()
+
 # import platform
 # from matplotlib import font_manager, rc
 # plt.rcParams['axes.unicode_minus'] = False
