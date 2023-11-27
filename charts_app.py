@@ -7,7 +7,7 @@ import platform
 import seaborn as sb
 
 
-
+plt.rcParams['font.family'] = 'Malgun Gothic'
 # import platform
 # from matplotlib import font_manager, rc
 # plt.rcParams['axes.unicode_minus'] = False
