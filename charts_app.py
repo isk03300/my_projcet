@@ -5,6 +5,7 @@ import pandas as pd
 import plotly.express as px
 import platform
 import seaborn as sb
+import numpy as np
 
 
 
@@ -34,11 +35,13 @@ def run_app_charts() :
     st.title('')
 
     fig = plt.figure()
-    df_total = df.groupby('건물용도')['물건금액(만원)'].max()
+    df_total = df['건물용도'].value_counts()
     plt.pie(df_total, labels=df_total.index, autopct='%.2f' , startangle= 90 ,wedgeprops={'width' : 0.7} )
-    plt.title('서울시 건물용도별 거래 비율')
-    
+    plt.title('서울시 건물용도별 거래 비율') 
     st.pyplot(fig)
+
     df_count = df['건물용도'].value_counts().to_frame()
     df_count = df_count.rename(columns={ 'count' : '건 수'})
-    st.write(df_count)
+    df_max_price = df.groupby('건물용도')['물건금액(만원)'].agg([np.max , np.min])
+    df_max_price = df_max_price.rename(columns={'max' : '최고가(만원)' , 'min' : '최저가(만원)'})
+    st.write(df_count , df_max_price )

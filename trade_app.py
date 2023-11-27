@@ -68,9 +68,9 @@ def run_app_trade() :
 
 
     if choice == menu[1] :
-         df_op = df.loc[ df['건물용도'] =='오피스텔' ,].set_index('건물용도')
+         df_apt = df.loc[ df['건물용도'] =='오피스텔' ,].set_index('건물용도')
 
-         st.dataframe(df_op) 
+         st.dataframe(df_apt) 
         
 
          st.text(' ')
@@ -78,12 +78,12 @@ def run_app_trade() :
          st.text(' ')
          st.text(' ')
         
-         op_order = df_op['자치구명'].value_counts().index
-         op_color = sb.color_palette()[0]
+         apt_order = df_apt['자치구명'].value_counts().index
+         apt_color = sb.color_palette()[0]
          
          fig = plt.figure()
 
-         sb.countplot( data = df_op , y = df_op['자치구명'] , color=op_color ,order=op_order )
+         sb.countplot( data = df_apt , y = df_apt['자치구명'] , color=apt_color ,order=apt_order )
          plt.title('자치구별 오피스텔 거래 건 수')
          plt.xlabel('거래 건 수( 단위 : 회 )')
          st.pyplot(fig)
@@ -94,11 +94,14 @@ def run_app_trade() :
          st.text(' ')
          
          fig2 = plt.figure()
-         df_op_pie = df_op['자치구명'].value_counts().head()
-         plt.pie(df_op_pie ,labels= df_op_pie.index, autopct='%.2f' , wedgeprops={'width' : 0.8} )
-         plt.title('서울시 자치구 오피스텔 거래량 Top5')
-        
+         df_apt_pie = df_apt['건물명'].value_counts().head()
+         plt.pie(df_apt_pie ,labels= df_apt_pie.index, autopct='%.2f' , wedgeprops={'width' : 0.8} )
+         plt.title('서울시 자치구 오피스텔 거래량 Top5') 
          st.pyplot(fig2)
+
+         df_apt_amounts = df_apt['건물명'].value_counts().to_frame().head()
+         df_apt_amounts = df_apt_amounts.rename(columns={'count' : '건 수'})
+         st.write(df_apt_amounts)
 
         
 
@@ -121,11 +124,13 @@ def run_app_trade() :
          st.pyplot(fig)
          
          fig2 = plt.figure()
-         df_apt_pie = df_apt['자치구명'].value_counts().head()
+         df_apt_pie = df_apt['건물명'].value_counts().head()
          plt.pie(df_apt_pie ,labels= df_apt_pie.index, autopct='%.2f' , wedgeprops={'width' : 0.8} )
          plt.title('서울시 자치구 아파트 거래량 Top5')
-        
          st.pyplot(fig2)
+         df_apt_amounts = df_apt['건물명'].value_counts().to_frame().head()
+         df_apt_amounts = df_apt_amounts.rename(columns={'count' : '건 수'})
+         st.write(df_apt_amounts)
 
 
     elif choice == menu[3]:
@@ -145,11 +150,15 @@ def run_app_trade() :
          st.pyplot(fig)
          
          fig2 = plt.figure()
-         df_apt_pie = df_apt['자치구명'].value_counts().head()
+         df_apt_pie = df_apt['건물명'].value_counts().head()
          plt.pie(df_apt_pie ,labels= df_apt_pie.index, autopct='%.2f' , wedgeprops={'width' : 0.8} )
          plt.title('서울시 자치구 연립다세대 거래량 Top5')
         
          st.pyplot(fig2)
+
+         df_apt_amounts = df_apt['건물명'].value_counts().to_frame().head()
+         df_apt_amounts = df_apt_amounts.rename(columns={'count' : '건 수'})
+         st.write(df_apt_amounts)
 
     elif choice == menu[4]:
 
@@ -168,10 +177,15 @@ def run_app_trade() :
          st.pyplot(fig)
          
          fig2 = plt.figure()
-         df_apt_pie = df_apt['자치구명'].value_counts().head()
+         df_apt_pie = df_apt['법정동명'].value_counts().head()
          plt.pie(df_apt_pie ,labels= df_apt_pie.index, autopct='%.2f' , wedgeprops={'width' : 0.8} )
          plt.title('서울시 자치구 단독다가구 거래량 Top5')
         
          st.pyplot(fig2)
 
+         st.info('단독다가구는 상세 주소가 없는 관계로 법정동명으로 집계 하였습니다.')
+         
+         df_apt_amounts = df_apt['법정동명'].value_counts().to_frame().head()
+         df_apt_amounts = df_apt_amounts.rename(columns={'count' : '건 수'})
+         st.write(df_apt_amounts)
     
