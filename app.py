@@ -1,8 +1,15 @@
 import streamlit as st
 import pandas as pd
+from matplotlib import pyplot as plt
 from charts_app import run_app_charts
 from home_app import run_app_home
 from trade_app import run_app_trade
+
+import platform
+from matplotlib import font_manager, rc
+plt.rcParams['axes.unicode_minus'] = False
+if platform.system() == 'Linux':
+    rc('font', family='NanumGothic')
 
 
 
