@@ -7,8 +7,6 @@ import platform
 import seaborn as sb
 import numpy as np
 
-
-
 import platform
 from matplotlib import font_manager, rc
 plt.rcParams['axes.unicode_minus'] = False
@@ -21,6 +19,7 @@ df = df.drop( [ '법정동코드','자치구코드' ,'지번구분' ,'권리구�
 df = df.fillna('NoData')
 df['계약일'] = pd.to_datetime(df['계약일'].astype(str))
 df['접수연도'] = df['접수연도'].astype(str)
+df2 = pd.read_csv('./data/dev2.csv')
 
 
 
@@ -33,6 +32,11 @@ def run_app_charts() :
     st.title('')
     st.title('')
     st.title('')
+
+    
+    fig3 =plt.figure()
+    df2.plot(x='거래일자',y='거래량',title='2023년 서울시 부동산 실거래 변동',linewidth=3)
+    st.pyplot(fig3)
 
     fig = plt.figure()
     df_total = df['건물용도'].value_counts()
