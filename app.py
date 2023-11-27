@@ -27,6 +27,8 @@ def main() :
     menu = ['Home','실거래가','차트/그래프 분석']
     
     choice = st.sidebar.selectbox('Menu', menu)
+
+    
     
     if choice == menu[0] :
 

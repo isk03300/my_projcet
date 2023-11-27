@@ -15,7 +15,7 @@ if platform.system() == 'Linux':
 
 if platform.system() == 'Darwin':
     rc('font', family='AppleGothic')
-    
+
 elif platform.system() == 'Windows':
     path = "c:/Windows/Fonts/malgun.ttf"
     font_name = font_manager.FontProperties(fname=path).get_name()
@@ -31,10 +31,10 @@ df = df.drop( [ '법정동코드','자치구코드' ,'지번구분' ,'권리구�
 df = df.fillna('NoData')
 df['계약일'] = pd.to_datetime(df['계약일'].astype(str))
 df['접수연도'] = df['접수연도'].astype(str)
-df2 = pd.read_csv('./data/dev2.csv')
+df2 = pd.read_csv('./data/dev2.csv') 
 
 
-
+ 
 
 def run_app_charts() :
 
@@ -45,10 +45,20 @@ def run_app_charts() :
     st.title('')
     st.title('')
 
-    
-    # fig3 =plt.figure()
-    # df2.plot(x='거래일자',y='거래량',title='2023년 서울시 부동산 실거래 변동',linewidth=3)
-    # st.pyplot(fig3)
+    fig2 = plt.figure()
+    plt.plot(df2['거래일자'],df2['거래량'])
+    plt.xticks(rotation=45)
+    plt.title('2023년 서울시 부동산 실거래 변동(월별)')
+    plt.xlabel('거래일자')
+    plt.ylabel('거래량')
+    st.pyplot(fig2)
+
+    st.title('')
+    st.title('')
+    st.title('')
+    st.title('')
+    st.title('')
+    st.title('')
 
     fig = plt.figure()
     df_total = df['건물용도'].value_counts()
