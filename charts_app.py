@@ -34,9 +34,9 @@ def run_app_charts() :
     st.title('')
 
     
-    fig3 =plt.figure()
-    df2.plot(x='거래일자',y='거래량',title='2023년 서울시 부동산 실거래 변동',linewidth=3)
-    st.pyplot(fig3)
+    # fig3 =plt.figure()
+    # df2.plot(x='거래일자',y='거래량',title='2023년 서울시 부동산 실거래 변동',linewidth=3)
+    # st.pyplot(fig3)
 
     fig = plt.figure()
     df_total = df['건물용도'].value_counts()
