@@ -44,4 +44,5 @@ def run_app_charts() :
     df_count = df_count.rename(columns={ 'count' : '건 수'})
     df_max_price = df.groupby('건물용도')['물건금액(만원)'].agg([np.max , np.min])
     df_max_price = df_max_price.rename(columns={'max' : '최고가(만원)' , 'min' : '최저가(만원)'})
-    st.write(df_count , df_max_price )
+    df_sum_dataframe = pd.concat([df_count,df_max_price],axis = 1)
+    st.write(df_sum_dataframe)
