@@ -12,4 +12,4 @@ def run_app_home():
     st.title('')
     
 
-    st.image('https://t3.ftcdn.net/jpg/04/21/16/34/240_F_421163410_moniEVGDKoYdKXmJzIa34aWR3g0AeJUG.jpg',width=700)
+    st.image('https://p4.wallpaperbetter.com/wallpaper/368/419/646/dubai-city-skyscrapers-building-wallpaper-preview.jpg',width=800)

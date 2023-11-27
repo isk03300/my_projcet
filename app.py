@@ -28,6 +28,19 @@ def main() :
     
     choice = st.sidebar.selectbox('Menu', menu)
 
+    css ="""
+    <style>
+        *{ 
+        color : #162802;  
+        }
+        .st-emotion-cache-uf99v8 {
+    background-color: #d8e267;
+}
+       
+    </style>
+    """
+    st.markdown(css, unsafe_allow_html=True)
+
     
     
     if choice == menu[0] :
