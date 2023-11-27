@@ -33,7 +33,7 @@ df['계약일'] = pd.to_datetime(df['계약일'].astype(str))
 df['접수연도'] = df['접수연도'].astype(str)
 df2 = pd.read_csv('./data/dev2.csv') 
 
-
+menu = ['오피스텔','아파트','연립다세대','단독다가구','종합']
  
 
 def run_app_charts() :
@@ -46,11 +46,12 @@ def run_app_charts() :
     st.title('')
 
 
-    
+ 
     fig2 = px.line(df2,x='거래일자',y='거래량',title='2023년 서울시 부동산 실거래 변동(월별)')
     fig2.update_xaxes(dtick='M1')
     fig2.update_layout(title={'text': '2023년 서울시 부동산 실거래 변동(월별)', 'font': {'size': 40}}, width=800, height=600)
     st.plotly_chart(fig2)
+  
 
     st.title('')
     st.title('')
@@ -71,3 +72,7 @@ def run_app_charts() :
     df_max_price = df_max_price.rename(columns={'max' : '최고가(만원)' , 'min' : '최저가(만원)'})
     df_sum_dataframe = pd.concat([df_count,df_max_price],axis = 1)
     st.write(df_sum_dataframe)
+
+    choice = st.multiselect('고르시오',menu)
+
+
