@@ -31,7 +31,7 @@ def main() :
     css ="""
     <style>
         *{ 
-        color : #162802;  
+        color : #632525;  
         }
         .st-emotion-cache-uf99v8 {
     background-color: #d8e267;
