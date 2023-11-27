@@ -39,7 +39,7 @@ def run_app_trade() :
         st.text(' ')
         st.text(' ')
         st.text(' ')
-
+        
         fig = plt.figure()
         color_set = sb.color_palette()[9]
         order_set = df['자치구명'].value_counts().index
@@ -51,7 +51,7 @@ def run_app_trade() :
         fig2 = plt.figure()
         df2 = df['자치구명'].value_counts().head()
         plt.pie(df2 , labels=df2.index, autopct='%.2f',wedgeprops={'width':0.7})
-        plt.title('서울시 전체 실거래량 Top5')
+        plt.title('서울시 전체 실거래량 Top5 ')
         st.pyplot(fig2)
 
 

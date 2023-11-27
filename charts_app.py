@@ -45,13 +45,12 @@ def run_app_charts() :
     st.title('')
     st.title('')
 
-    fig2 = plt.figure()
-    plt.plot(df2['거래일자'],df2['거래량'])
-    plt.xticks(rotation=45)
-    plt.title('2023년 서울시 부동산 실거래 변동(월별)')
-    plt.xlabel('거래일자')
-    plt.ylabel('거래량')
-    st.pyplot(fig2)
+
+    
+    fig2 = px.line(df2,x='거래일자',y='거래량',title='2023년 서울시 부동산 실거래 변동(월별)')
+    fig2.update_xaxes(dtick='M1')
+    fig2.update_layout(title={'text': '2023년 서울시 부동산 실거래 변동(월별)', 'font': {'size': 40}}, width=800, height=600)
+    st.plotly_chart(fig2)
 
     st.title('')
     st.title('')
