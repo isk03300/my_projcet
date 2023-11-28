@@ -73,6 +73,6 @@ def run_app_charts() :
     df_sum_dataframe = pd.concat([df_count,df_max_price],axis = 1)
     st.write(df_sum_dataframe)
 
-    choice = st.multiselect('고르시오',menu)
+    
 
 
