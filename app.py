@@ -3,6 +3,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from charts_app import run_app_charts
 from home_app import run_app_home
+from info_app import run_app_info
 from trade_app import run_app_trade
 
 import platform
@@ -10,6 +11,8 @@ from matplotlib import font_manager, rc
 plt.rcParams['axes.unicode_minus'] = False
 if platform.system() == 'Linux':
     rc('font', family='NanumGothic')
+
+st.snow()
 
 
 
@@ -24,7 +27,7 @@ def main() :
     print(df['계약일'])
     
 
-    menu = ['Home','실거래가','차트/그래프 분석']
+    menu = ['Home','실거래가','차트/그래프 분석','참고영상']
     
     choice = st.sidebar.selectbox('Menu', menu)
 
@@ -56,6 +59,9 @@ def main() :
     if choice == menu[2] :
 
         run_app_charts()
+
+    if choice == menu[3] :
+        run_app_info()
 
 
 
