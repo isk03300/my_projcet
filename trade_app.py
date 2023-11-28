@@ -17,7 +17,7 @@ if platform.system() == 'Linux':
 
 df = pd.read_csv('./data/dev.csv')
 df = df.drop( [ '법정동코드','자치구코드' ,'지번구분' ,'권리구분','취소일'] , axis=1)
-df = df.fillna('NoData')
+# df = df.fillna('NoData')
 df['계약일'] = pd.to_datetime(df['계약일'].astype(str))
 df['접수연도'] = df['접수연도'].astype(str)
 
@@ -48,11 +48,20 @@ def run_app_trade() :
         plt.xlabel('거래 건 수')
         st.pyplot(fig)
 
+        st.text(' ')
+        st.text(' ')
+        st.text(' ')
+        st.text(' ')
+
         fig2 = plt.figure()
-        df2 = df['자치구명'].value_counts().head()
+        df2 = df.loc[df['건물명'].notna() , ]
+        df2 = df2['건물명'].value_counts().head()
+        df2_amounts = df2.to_frame().rename(columns={'count' : '건 수'})
         plt.pie(df2 , labels=df2.index, autopct='%.2f',wedgeprops={'width':0.7})
-        plt.title('서울시 전체 실거래량 Top5 ')
+        plt.title('서울시 전체 실거래량 Top5 건물 ')
         st.pyplot(fig2)
+        st.dataframe(df2_amounts)
+        print(df2)
 
 
         
