@@ -30,7 +30,7 @@ def run_app_trade() :
     st.header('2023년도 서울특별시 부동산 실거래가')
 
     if st.checkbox('전체 실거래 보기') :
-        st.warning('출처 : https://data.seoul.go.kr/dataList/OA-21275/S/1/datasetView.do')
+       
         st.text('*기준은 계약일이 아닌 접수연도를 기준으로 한다*')
         st.dataframe(df)
         
