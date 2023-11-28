@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 def run_app_home():
+    st.snow()
 
     st.header('2023년 서울특별시 부동산 실거래 동향 분석')
 
