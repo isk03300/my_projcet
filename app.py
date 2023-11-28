@@ -37,7 +37,7 @@ def main() :
         color : #632525;  
         }
         .st-emotion-cache-uf99v8 {
-    background-color: #d8e267;
+    background-color: #f2e3d0;
 }
        
     </style>
