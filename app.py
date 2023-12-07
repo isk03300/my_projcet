@@ -17,7 +17,7 @@ if platform.system() == 'Linux':
 
 
 
-def main() :
+def main() :dfdf
 
     df = pd.read_csv('./data/dev.csv')
     df = df.drop( [ '법정동코드','자치구코드' ,'지번구분' ,'권리구분','취소일'] , axis=1)
