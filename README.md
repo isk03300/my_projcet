@@ -1,6 +1,5 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=wave&color=0:4eb00c,100:a29511&height=120&text=2023%20서울시%20부동산%20실거래가%20분석&animation=&fontColor=111111&fontSize=50" />
-    </div>     
+    <img src="https://capsule-render.vercel.app/api?type=wave&color=0:4eb00c,100:a29511&height=120&text=2023%20서울시%20부동산%20실거래가%20분석&animation=&fontColor=111111&fontSize=50" /></div>     
     </div>   
     <div style="text-align: left;">
     <h2 style="border-bottom: 1px solid #21262d; color: #c9d1d9;"> Link </h2> <br> 
@@ -18,9 +17,5 @@
           </div>  <br> 
     <div style="text-align: left;">  </div> 
     </div>
-    <div style="text-align: left;"> 
-    <h2 style="border-bottom: 1px solid #21262d; color: #c9d1d9;"> Stats </h2> <div style="text-align: left;"> <img src="https://github-readme-stats.vercel.app/api?username=isk03300&bg_color=180,000000,&title_color=000000&text_color=000000"
-         /> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=isk03300&layout=compact&bg_color=180,000000,&title_color=000000&text_color=000000"
-           /> </div> 
-    </div>
+
     
