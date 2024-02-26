@@ -1,5 +1,5 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=wave&color=0:4eb00c,100:a29511&height=120&text=2023%20서울시%20부동산%20실거래가%20분석&animation=&fontColor=ffffff&fontSize=50" />
+    <img src="https://capsule-render.vercel.app/api?type=wave&color=0:4eb00c,100:a29511&height=120&text=2023%20서울시%20부동산%20실거래가%20분석&animation=&fontColor=111111&fontSize=50" />
     </div>
     <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #21262d; color: #c9d1d9;">  </h2>  
