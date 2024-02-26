@@ -5,6 +5,9 @@
     <h2 style="border-bottom: 1px solid #21262d; color: #c9d1d9;">  </h2>  
     <div style="font-weight: 700; font-size: 15px; text-align: left; color: #c9d1d9;">  </div>      
     </div>   
+    <div style="text-align: left;">
+    <h2 style="border-bottom: 1px solid #21262d; color: #c9d1d9;"> 🧑‍💻 Contact me </h2> <br> 
+    <div style="text-align: left;"> <a href=https://luxurious-brazil-9af.notion.site/2294f922fa2d4ad7891cf53d328f9b0b?pvs=25> <img src="https://img.shields.io/badge/Notion-000000?style=plastic&logo=Notion&logoColor=white&link=https://luxurious-brazil-9af.notion.site/2294f922fa2d4ad7891cf53d328f9b0b?pvs=25"> </a>
     <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #21262d; color: #c9d1d9;">  </h2>  
     <div style="font-weight: 700; font-size: 15px; text-align: left; color: #c9d1d9;">  </div>      
